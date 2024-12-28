@@ -1,0 +1,4 @@
+repository "goofygame/goofygame@7972413190180@cloud"
+  path "/"
+    br "/main"
+    co "/main"
