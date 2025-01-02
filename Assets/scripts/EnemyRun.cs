@@ -7,12 +7,12 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         // Calculate the direction toward X = 0
-        Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y, -3);
+        Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y, -4);
 
         // Move the enemy toward the target position
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
     
-        if (Mathf.Approximately(transform.position.z, -3))
+        if (Mathf.Approximately(transform.position.z, -3.5f))
     {
         Destroy(gameObject);
     }

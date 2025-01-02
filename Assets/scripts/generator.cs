@@ -3,9 +3,9 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public float spawnInterval; // Time between spawns
-    public float spawnZPosition; // Z pos
-    public float spawnXRange; // Random X pos
+    public float spawnInterval = 10; // Time between spawns
+    public float spawnZPosition = 42; // Z pos
+    public float spawnXRange = 4; // Random X pos
 
     void Start()
     {
