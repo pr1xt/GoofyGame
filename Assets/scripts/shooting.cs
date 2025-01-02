@@ -5,20 +5,19 @@ public class HeroShooting : MonoBehaviour
     public GameObject bulletPrefab; // Bullet prefab to shoot
     public Transform firePoint; // Point from where the bullet is spawned
     public float bulletSpeed = 10f; // Speed of the bullet
+    public float shootInterval = 1.5f; // Time between shots
+    private float shootTimer = 0f;
 
     void Update()
     {
-        // Check for Space key press
-        if (Input.GetKeyDown(KeyCode.Space))
+        shootTimer += Time.deltaTime;
+
+        // Check if it's time to shoot
+        if (shootTimer >= shootInterval)
         {
             Shoot();
+            shootTimer = 0f; // Reset the timer
         }
-    }
-
-    void OnMouseDown()
-    {
-        // Shoot when the hero object is clicked
-        Shoot();
     }
 
     void Shoot()

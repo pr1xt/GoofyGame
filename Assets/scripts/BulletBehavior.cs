@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
-    public float speed = 10f; // Speed of the bullet
-    public float lifetime = 3f; // Time before the bullet is destroyed
+    public float speed = 20f; // Speed of the bullet
+    public float lifetime = 6f; // Time before the bullet is destroyed
 
     void Start()
     {
