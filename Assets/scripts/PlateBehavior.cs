@@ -14,17 +14,14 @@ public class PlateBehavior : MonoBehaviour
     
     void Update()
     {
-        // Debug.Log(transform.position.x+" "+ LeftBorder);
 
         if (Mathf.Approximately(transform.position.x, LeftBorder))
         {
            targetPosition = new Vector3(RightBorder, transform.position.y, transform.position.z);
-            Debug.Log("Left border touched");
         }
         else if (Mathf.Approximately(transform.position.x, RightBorder))
         {
             targetPosition = new Vector3(LeftBorder, transform.position.y, transform.position.z);
-            Debug.Log("Right border touched");
         }
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
     }
