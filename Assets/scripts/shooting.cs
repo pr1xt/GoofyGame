@@ -22,14 +22,17 @@ public class HeroShooting : MonoBehaviour
 
     void Shoot()
     {
+        Vector3 firePoint = new Vector3(transform.position.x,transform.position.y,0);
+    
         // Instantiate the bullet at the firePoint's position and rotation
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, firePoint, Quaternion.identity);
 
         // Apply force to the bullet to make it move
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.linearVelocity = firePoint.forward * bulletSpeed;
-        }
+    if (rb != null)
+    {
+        // Set the velocity to move along the Z-axis (positive or negative)
+        rb.linearVelocity = new Vector3(0, 0, bulletSpeed); // Change to (0, 0, bulletSpeed) if you want it to move in the positive Z direction
+    }
     }
 }
