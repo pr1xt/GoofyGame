@@ -35,14 +35,15 @@ public class PlateBehavior : MonoBehaviour
 
             Vector3 firepoint = new Vector3(transform.position.x+randomNumber,transform.position.y+randomNumber,7);
     
-            GameObject bullet = Instantiate(bulletPrefab, firepoint, transform.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, firepoint,Quaternion.identity);
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                // Set the velocity to move along the Z-axis (positive or negative)
+                rb.linearVelocity = new Vector3(0, 0, bulletSpeed); // Change to (0, 0, bulletSpeed) if you want it to move in the positive Z direction
+            }
             
             
-            // Rigidbody rb = bullet.GetComponent<Rigidbody>();
-            // if (rb != null)
-            // {
-            //     rb.linearVelocity = firePoint.forward * bulletSpeed;
-            // }
         }
     }
 }

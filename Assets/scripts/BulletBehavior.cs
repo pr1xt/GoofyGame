@@ -17,13 +17,4 @@ public class BulletBehavior : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        // Optional: Handle collision with enemies or objects
-        if (other.CompareTag("enemy"))
-        {
-            Destroy(other.gameObject); // Destroy enemy
-            Destroy(gameObject); // Destroy the bullet
-        }
-    }
 }
