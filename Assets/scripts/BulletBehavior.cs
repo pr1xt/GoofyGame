@@ -16,5 +16,17 @@ public class BulletBehavior : MonoBehaviour
         // Move the bullet forward
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
+     void OnCollisionEnter(Collision collision)
+    {
+        // Check if the collided object is tagged as "Enemy"
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            // Destroy the enemy
+            Destroy(collision.gameObject);
+
+            // Destroy the bullet
+            Destroy(gameObject);
+        }
+    }
 
 }

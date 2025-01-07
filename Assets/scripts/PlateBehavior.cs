@@ -35,7 +35,7 @@ public class PlateBehavior : MonoBehaviour
         {
             float randomNumber = PositionsOfBullet[UnityEngine.Random.Range(0, PositionsOfBullet.Count)];
 
-            Vector3 firepoint = new Vector3(transform.position.x+randomNumber,transform.position.y-1,transform.position.z-0.1f);
+            Vector3 firepoint = new Vector3(transform.position.x+randomNumber,transform.position.y-1,transform.position.z+0.5f);
     
             GameObject bullet = Instantiate(bulletPrefab, firepoint,Quaternion.identity);
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
