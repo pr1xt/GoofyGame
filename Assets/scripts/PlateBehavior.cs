@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlateBehavior : MonoBehaviour
@@ -8,8 +9,10 @@ public class PlateBehavior : MonoBehaviour
     public float speed = 1f;
     
     public float LeftBorder = -3f;
-    private float bulletSpeed = 10f;
+    private float bulletSpeed = 20f;
     public float RightBorder = 3f;
+    private List<float> PositionsOfBullet = new List<float> {1, 0.7f, 0.5f, 0.3f, -1, -0.7f, -0.5f, -0.3f};
+
     Vector3 targetPosition = new Vector3(-3f,0.5f,6);
     
     void Update()
@@ -27,13 +30,12 @@ public class PlateBehavior : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Connect");
         // Optional: Handle collision with enemies or objects
         if (other.CompareTag("bullet"))
         {
-            float randomNumber = UnityEngine.Random.Range(-20f, 20f) / 10f;
+            float randomNumber = PositionsOfBullet[UnityEngine.Random.Range(0, PositionsOfBullet.Count)];
 
-            Vector3 firepoint = new Vector3(transform.position.x+randomNumber,transform.position.y+randomNumber,7);
+            Vector3 firepoint = new Vector3(transform.position.x+randomNumber,transform.position.y-1,7);
     
             GameObject bullet = Instantiate(bulletPrefab, firepoint,Quaternion.identity);
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
