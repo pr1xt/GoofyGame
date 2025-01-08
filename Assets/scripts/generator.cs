@@ -7,7 +7,7 @@ public class EnemyGenerator : MonoBehaviour
     public float spawnZPosition; // Z pos
     public float spawnXRange = 4; // Random X pos
     public float intervalDecreaseRate = 0.01f; // How much to decrease the interval each time
-    public float minimumSpawnInterval = 0.3f; // The minimum interval allowed
+    public float minimumSpawnInterval = 0.4f; // The minimum interval allowed
 
     void Start()
     {
